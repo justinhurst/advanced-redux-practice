@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from 'react-redux';
 
 function Tasks(props) {
   return ( <div className="col-lg-3 col-md-6">
@@ -24,6 +25,13 @@ function Tasks(props) {
                         </div>
                     </div>);
 }
-
-export default Tasks;
+function mapStateToProps(state){
+    return{
+      newTasks:state.newTasks
+    }
+}
+   
+// 'Comments' is the name of the component
+const TasksContainer = connect(mapStateToProps)(Tasks);
+export default TasksContainer;
 

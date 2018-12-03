@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from 'react-redux';
 
 function Orders(props) {
   return ( 
@@ -25,5 +26,12 @@ function Orders(props) {
       </div>
     </div>);
 }
-
-export default Orders;
+function mapStateToProps(state){
+  return{
+    newOrders:state.newOrders
+  }
+}
+ 
+// 'Comments' is the name of the component
+const OrdersContainer = connect(mapStateToProps)(Orders);
+export default OrdersContainer;
